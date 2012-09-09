@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+<meta charset=utf-8>
+<title>Inscription</title>
+
+<style>
+
+@font-face {
+	font-family: 'BebasNeueRegular';
+	src: url('/public/fonts/bebas/BebasNeue-webfont.eot');
+	src: url('/public/fonts/bebas/BebasNeue-webfont.eot?#iefix') format('embedded-opentype'),
+	     url('/public/fonts/bebas/BebasNeue-webfont.woff') format('woff'),
+	     url('/public/fonts/bebas/BebasNeue-webfont.ttf') format('truetype'),
+	     url('/public/fonts/bebas/BebasNeue-webfont.svg#BebasNeueRegular') 
+	}
+	
+	body {
+		text-align:center;
+		font-family:BebasNeueRegular;
+	}	
+
+	#container {
+		margin-left:auto;
+		margin-right:auto;
+		width: 190px;
+		padding: 20px;
+		text-align:left;
+		background-color: #b9b9b6;
+		border: solid #80807e 2px;
+		font-size:20px;
+	}
+	
+	.field {
+		margin-bottom:20px;
+		width:100%;
+		height:20px;
+		border:none;
+	}
+	
+	.button {
+		border:none;
+		height:40px;
+		background:white;
+		width:100%;
+	}
+	
+</style>
+
+</head>
+	<body>
+		<div id="container">
+			<h1>Inscription</h1>
+			<form method="post" action="/subscribe">
+				<label>Nom d'utilisateur </label> <br/>
+				<input class="field" type="text" name="username"/><br/>
+				<label>Mot de passe</label>
+				<input class="field" type="text" name="password"/><br/>
+				<input class="button" type="submit" name="Valider" />
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,3 @@
+02-03 17:49:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "AUTHOR BINARY(255)": "X'aced00057372000b6d6f64656c732e5573657288f4a49a47991cea0200024c00046e616d657400124c6a6176612f6c616e672f537472696e673b4c00087061... (295)"; SQL statement:
+insert into Message (id, author, content) values (null, ?, ?) [90005-149]
