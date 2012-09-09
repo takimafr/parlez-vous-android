@@ -1,0 +1,12 @@
+.settings
+.project
+.classpath
+
+.DS_Store
+
+gen
+target
+bin
+
+tmp
+eclipse
