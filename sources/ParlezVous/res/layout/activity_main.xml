@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@android:color/white" >
 
     <LinearLayout
         android:id="@+id/header"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/background"
         android:orientation="horizontal" >
@@ -16,8 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:text="@string/connection_form"
-            android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="18sp" />
 
         <ProgressBar
             android:id="@+id/loading"
@@ -29,29 +28,31 @@
 
     <LinearLayout
         android:id="@+id/footer"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
 
         <Button
             android:id="@+id/clean_button"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/clean" />
+            android:text="@string/clean"
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/send_button"
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/send" />
+            android:text="@string/send"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_above="@id/footer"
         android:layout_below="@id/header"
         android:layout_marginLeft="5dp"
@@ -59,13 +60,13 @@
         android:layout_marginTop="20dp" >
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/error_message"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:text="@string/no_empty_fields"
@@ -73,19 +74,20 @@
                 android:visibility="gone" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/username"
                 android:textColor="@android:color/black" />
 
             <EditText
                 android:id="@+id/username_field"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="@android:color/black" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/password"
@@ -93,9 +95,10 @@
 
             <EditText
                 android:id="@+id/password_field"
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="@android:color/black" />
         </LinearLayout>
     </ScrollView>
 

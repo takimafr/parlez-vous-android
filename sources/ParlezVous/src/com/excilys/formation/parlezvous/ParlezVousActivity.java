@@ -9,6 +9,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,8 +25,8 @@ import android.widget.Toast;
 import com.excilys.formation.parlezvous.utils.InputStreamToString;
 
 public class ParlezVousActivity extends Activity {
-	
-	public static final String SERVER = "192.168.1.20";
+
+	public static final String SERVER = "192.168.0.12";
 
 	private final String TAG = ParlezVousActivity.class.getSimpleName();
 
@@ -48,6 +49,9 @@ public class ParlezVousActivity extends Activity {
 		sendButton = (Button) findViewById(R.id.send_button);
 		loading = (ProgressBar) findViewById(R.id.loading);
 		errorMessage = (TextView) findViewById(R.id.error_message);
+
+		if (savedInstanceState != null && savedInstanceState.getBoolean("isErrorMessageVisible"))
+			errorMessage.setVisibility(View.VISIBLE);
 
 		cleanButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -101,6 +105,7 @@ public class ParlezVousActivity extends Activity {
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
+		outState.putBoolean("isErrorMessageVisible", errorMessage.getVisibility() == View.VISIBLE);
 		Log.i(TAG, "onSaveInstanceState!");
 	}
 
@@ -124,7 +129,7 @@ public class ParlezVousActivity extends Activity {
 			String password = params[1];
 
 			DefaultHttpClient client = new DefaultHttpClient();
-			HttpGet httpGet = new HttpGet("http://" + SERVER +":9000/connect/" + username + "/" + password);
+			HttpGet httpGet = new HttpGet("http://" + SERVER + ":9000/connect/" + username + "/" + password);
 
 			String content = null;
 			try {
@@ -146,6 +151,11 @@ public class ParlezVousActivity extends Activity {
 			String message;
 			if (result) {
 				message = "Utilisateur connecté!";
+				SharedPreferences prefs = getSharedPreferences("users_credentials", MODE_PRIVATE);
+				SharedPreferences.Editor editor = prefs.edit();
+				editor.putString("username", usernameField.getText().toString());
+				editor.putString("password", passwordField.getText().toString());
+				editor.commit();
 				Intent intent = new Intent(ParlezVousActivity.this, ParlezVousActivity2.class);
 				startActivity(intent);
 			} else {
