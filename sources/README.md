@@ -1,5 +1,4 @@
-parlez-vous-android
-===================
+# Formation Parlez-Vous Android?
 
 Dans ce dossier se trouve le code source des exercices de la formation **Parlez-vous Android ?**.
 
