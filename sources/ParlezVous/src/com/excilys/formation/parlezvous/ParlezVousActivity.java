@@ -26,7 +26,7 @@ import com.excilys.formation.parlezvous.utils.InputStreamToString;
 
 public class ParlezVousActivity extends Activity {
 
-	public static final String SERVER = "192.168.0.12";
+	public static final String SERVER = "192.168.1.20";
 
 	private final String TAG = ParlezVousActivity.class.getSimpleName();
 
@@ -41,7 +41,7 @@ public class ParlezVousActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.i(TAG, "onCreate!");
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_parlezvous);
 
 		usernameField = (EditText) findViewById(R.id.username_field);
 		passwordField = (EditText) findViewById(R.id.password_field);
@@ -71,6 +71,10 @@ public class ParlezVousActivity extends Activity {
 				}
 			}
 		});
+
+		SharedPreferences prefs = getSharedPreferences("users_credentials", MODE_PRIVATE);
+		usernameField.setText(prefs.getString("username", ""));
+		passwordField.setText(prefs.getString("password", ""));
 
 	}
 
@@ -157,6 +161,9 @@ public class ParlezVousActivity extends Activity {
 				editor.putString("password", passwordField.getText().toString());
 				editor.commit();
 				Intent intent = new Intent(ParlezVousActivity.this, ParlezVousActivity2.class);
+				// Without Preferences but with extras
+				// intent.putExtra("username", usernameField.getText().toString());
+				// intent.putExtra("password", passwordField.getText().toString());
 				startActivity(intent);
 			} else {
 				message = "Vous n'êtes pas connecté!";

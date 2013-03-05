@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -15,12 +14,15 @@ public class ParlezVousActivity2 extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.new_layout);
+		setContentView(R.layout.activity_parlezvous2);
 		SharedPreferences prefs = getSharedPreferences("users_credentials", MODE_PRIVATE);
 		String username = prefs.getString("username", "");
 		String password = prefs.getString("password", "");
+		// Without preferences but with extras
+		// Intent intent = getIntent();
+		// String username = intent.getStringExtra("username");
+		// String password = intent.getStringExtra("password");
 		Toast.makeText(this, username + "/" + password, Toast.LENGTH_LONG).show();
-
 	}
 
 	@Override

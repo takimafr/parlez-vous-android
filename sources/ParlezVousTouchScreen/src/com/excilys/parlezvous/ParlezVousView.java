@@ -27,7 +27,6 @@ public class ParlezVousView extends SurfaceView implements OnDoubleTapListener,
 
 		gestureDetector = new GestureDetector(getContext(), this);
 		gestureDetector.setOnDoubleTapListener(this);
-
 	}
 
 	@Override
