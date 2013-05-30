@@ -38,7 +38,7 @@
                         </ul>
                         <p>Une bonne façon de commencer est de mettre en place des layouts avec des couleurs de fond différentes pour s'assurer que tout est bien à sa place et réagit correctement au changement d'orientation.</p>
                         <p>Pour changer la couleur de fond d'un élément :</p>
-                        <p>android:background="#FFFF0000"</p>
+						<p>android:background="#<font color="red">FF</font><font color="green">FF0000</font>"</p>
                         <p><span>En rouge</span> la transparence de 00 à FF</p>
                         <p>En vert le code couleur en hexadécimal (ici du rouge)</p>
                     </div>
@@ -144,7 +144,12 @@
                         </section>
                         <section id="exercice8">
                             <h1>Exercice 8 – Broadcast Receiver</h1>
-                            <p>Créer un BroadcastReceiver qui à la réception d'un nouveau SMS, affiche un Toast. (Faudrait indiquer l'Action pour recevoir un SMS)</p>
+                            <p>Créer un BroadcastReceiver qui affiche un Toast à la réception d'un sms.</p>
+							<p>Indication : </p>
+							<ul>
+							<li>Permission : android.permission.RECEIVE_SMS</li>
+							<li>Action : android.provider.Telephony.SMS_RECEIVED</li>
+							</ul>
                             <h2>Bonus :</h2>
                             <p>Faites des tests avec d'autres événements système.</p>
                         </section>
@@ -164,7 +169,7 @@
                                 <li>Ajoutez cette nouvelle vue à votre layout principal comme ci-contre : <script src="https://gist.github.com/4253537.js?file=parlezvousview.xml"></script></li>
                             </ul>
                             <p>Indications :</p>
-                            <p>Vous devez dessiner vos cercles dans la méthode onDraw grâce au canvas. Il va falloir que forciez la vue à se redessiner dans la méthode onTouch.</p>
+                            <p>Vous devez dessiner vos cercles dans la méthode onDraw grâce au canvas. Il va falloir que vous forciez la vue à se redessiner dans la méthode onTouch.</p>
                             <h2>Bonus</h2>
                             <p>Faites en sorte qu'en touchant 2 fois rapidement un cercle, celui-ci soit supprimé de l'écran.</p>   
                         </section>
@@ -173,5 +178,5 @@
 
                 <script src="js/bootstrap.min.js"></script>
                 <script src="http://code.jquery.com/jquery-latest.js"></script>
-            </body>
-            </html>
+</body>
+</html>
