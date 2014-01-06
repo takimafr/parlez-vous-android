@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Exercices de la formation Parlez-Vous Android ?">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Do you speak Android - Exercises</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+    <div class="masthead">
+        <div class="container lead">
+            <h1>Do you speak Android?</h1>
+            <p>Android through practice.</p>
+            <p class="excilys"><span>by</span> <a href="http://www.excilys.com/">Excilys</a></p> 
+        </div>
+    </div>
+    <div class="container">
+        <div class="row-fluid">
+            <section id="exercice1">
+                <h1>Exercise 1 - Project creation</h1>
+                <p>Create an Android project in Eclipse and run it using the emulator.</p>
+            </section>
+            <section id="exercice2">
+                <h1>Exercise 2 - Layouts</h1>
+                <p>The goal of this exercise is to make you practice with layouts in order to get a final view similar to the one captured: a form with two fields and controls at the bottom of the screen. This screen represents the connexion form of our future app.</p>
+                <div class="media">
+                    <img class="media-object pull-left" src="img/exo2.1.png" width="220px" />
+                    <img class="pull-left" width="300px" src="img/exo2.2.png">
+                    <div class="media-body">
+                        <p>Indications:</p>
+                        <ul>
+                            <li><strong>TextView</strong> displays a text</li>
+                            <li><strong>EditText</strong> displays an editable field</li>
+                            <li><strong>ScrollView</strong> is a container for scrollable content</li>
+                            <li><strong>Button</strong> displays a button</li>
+                        </ul>
+                        <p>A good way to start is by placing the layouts with various background colors to ensure everything is correctly set and reacts correctly to an orientation change.</p>
+                        <p>To change the background color of an element:</p>
+						<p>android:background="#<font color="red">FF</font><font color="green">FF0000</font>"</p>
+                        <p><span>In red</span> transparency from 00 to FF</p>
+                        <p>In green, the hexadecimal color code (here, representing red)</p>
+                    </div>
+                </div>
+
+                <h2>Bonus</h2>
+                <div class="media">
+                    <img class="media-object pull-left" width="260px" src="img/exo2-bonus.png" alt="disposition avec RelativeLayout">
+                    <div class="media-body"> 
+                        <p>Create a new project and try reproducing the example by just using a RelativeLayout and TextViews. The result should look like this.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="exercice3">
+                <h1>Exercise 3 – Cycle de vie d'une activity</h1>
+                <p>The goal of this exercise is to understant how an Activity reacts to different events.
+                    In order to do this, you will use the logging API provided by Android.</p>
+                    <pre>Log.i(TAG, "onCreate!");</pre>
+                    <p>A common practice is to declare a TAG constant in the class.</p>
+                    <script src="https://gist.github.com/4237852.js?file=log-tag.java"></script>                    <p>Redefine the following methods and add it an explicit log:</p>
+                    <pre>onCreate, onDestroy, onPause, onResume, onSaveInstanceState, onRestoreInstanceState</pre>
+                    <p>Observe what happens when:</p>
+                    <ul>
+                        <li>The application is starting</li>
+                        <li>You change the orientation of your phone (Ctrl+F11 with the emulator)</li>
+                        <li>You close the application</li>
+                    </ul>
+                    <img src="img/logcat.png">
+                </section>
+                <section id="exercice4">
+                    <h1>Exercise 4 – Users interactions</h1>
+                    <p>The goal of this exercise is to listen and manipulate a view from the Activity. Let's get going with our application for this.</p>
+                    <ul>
+                        <li>In the onCreate method of the Activity, gather the elements you are about to use with findViewById: 
+                            <script src="https://gist.github.com/4253537.js?file=usernameField.java"></script>
+                        </li>
+                        <li>Add a listener to the buttons' onClick event, which can be either the Activity, an anonymous class or an external one.</li>
+                        <li>Implement the button "Empty" which suppress the content of the textfields.</li>
+                        <li>Implement the button "Send" which displays a Toast.</li>
+                        <pre>Toast.makeText(this, "Toast !", Toast.LENGTH_SHORT).show();</pre>
+                    </ul>
+                    <h2>Bonus 1</h2>
+                    <p>Add a validation phase to the form when trying to send which will check that the textfields are not empty.
+                        For the error message, use a TextView with <code>gone</code> as a visibility attribute. The method <code>setVisibility(View.VISIBLE)</code> will then allow you to make this error message visible.
+                    </p>
+                    <h2>Bonus 2</h2>
+                    <p>Change the screen orientation when the error message is visible.</p>
+                    <ul>    
+                        <li>What happens?</li>
+                        <li>Why?</li>
+                        <li>How to correct this?</li>
+                    </ul>
+                </section>
+                <section id="exercice5">
+                    <h1>Exercise 5 – REST webservices</h1>
+                    <p>The goal of this exercise is to send a form to a REST webservice.</p>
+                    <p>The first thing to do is to authorize the application to use an internet connection.
+                        For this purpose, add the following line in your <strong>AndroidManifest.xml</strong>:</p>
+                        <pre>&lt;uses-permission android:name="android.permission.INTERNET" /&gt;</pre>
+                        <ul>
+                            <li>Create a class <code>ParlezVousTask</code> which extends <code>android.os.AsyncTask</code>.</li>
+                            <li>In the method <code>onPreExecute</code>, display a loading wheel.</li>
+                            <li>In the method <code>onPostExecute</code>, make this wheel invisible.</li>
+                            <li>In the method <code>doInBackground</code>, retrieve the username and the password.</li>
+                            <li>
+                                Call the webservice inside the method <code>doInBackground</code>.
+                            </li>
+                        </ul>
+                        <p>The URL you should call is: <pre>http://[host]:[port]/connect/[username]/[password]</pre></p>
+                        <ul>
+                            <li><strong>host</strong>: Ask me</li>
+                            <li><strong>port</strong>: Ask me</li>
+                            <li><strong>username</strong>: username field value</li>
+                            <li><strong>password</strong>: password field value</li>
+                            <li>The HTTP method to use is <strong>GET</strong></li>
+                        </ul>
+                        <p>The response to this request is the string "true" if the combination username/password correspond to a known user and "false" otherwise. </p>
+
+                        <p>Indications:</p>
+                        <ul>
+                            <li>Use the class <code>InputStreamToString</code> to convert an InputStream in String. 
+                                <script src="https://gist.github.com/4253537.js?file=InputStreamToString.java"></script>
+                            </li>
+                            <li><code>ProgressBar</code> can be used as the loading wheel. Put it in your <code>main.xml</code> but make it invisible at first (via the visibility attribute). Then make it visible or not when needed.</li>
+                        </ul>
+                    </section>
+                    <section id="exercice6">
+                        <h1>Exercise 6 – Launch a new Activity</h1>
+                        <p>The goal of this exercise is simple. When the user is connected to your application, redirect him to a new Activity using an Intent.</p>
+                        <p>In this new Activity, display the name of the user who just connected. For that, send a parameter (Extra) when creating the Intent.</p>
+                        <p>Faites en sorte qu'à partir de cette nouvelle Activity, l'utilisateur puisse se déconnecter via un OptionsMenu.</p>
+                        <h2>Bonus :</h2>
+                        <p>Display a confirmation AlertDialog when the user wants to disconnect. Tip: use the builder.</p>
+                    </section>
+                    <section id="exercice7">
+                        <h1>Exercise 7 – Shared preferences</h1>
+                        <p>Make it so the user doesn't need to type his credentials again when connecting again. In order to do that, you should store them in the SharedPreferences and load them when starting the application.</p>
+                        <p>Tips: </p>
+                        <p>Kill the application and launch it again to verify its behavior. </p>
+                        <p>To kill the application: 
+                            <pre>Phone settings > Applications</pre></p>
+                        </section>
+                        <section id="exercice8">
+                            <h1>Exercise 8 – Broadcast Receiver</h1>
+                            <p>Create a BroadcastReceiver which displays a Toast when receiving an SMS.</p>
+							<p>Tips: </p>
+							<ul>
+							<li>Permission: android.permission.RECEIVE_SMS</li>
+							<li>Action: android.provider.Telephony.SMS_RECEIVED</li>
+							</ul>
+                            <h2>Bonus :</h2>
+                            <p>Experiment with various system events.</p>
+                        </section>
+                        <section id="exercice9">
+                            <h1>Exercise 9 – TouchScreen</h1>
+                            <p>The goal of this exercise is for your application to interract with the user clicking or making gestures. The application must then follow these rules:</p>
+                            <ul>
+                                <li>When the user puts his finger on the screen, a colored circle should be displayed at this spot.</li>
+                                <li>If the user keeps his finger on the screen and move it on the screen, the circle should follow.</li>
+                                <li>If the user clicks on an existing circle, don't create a new circle but move the existing one.</li>
+                            </ul>
+                            <p>For this purpose:</p>
+                            <ul>
+                                <li>Create a class <code>ParlezVousView</code> which inherits from SurfaceView and redefine the method onTouchEvent. You'll find premisses of code here:
+                                    <script src="https://gist.github.com/4253537.js?file=touch.java"></script>
+                                </li>
+                                <li>Add this new view to your main layout like so: <script src="https://gist.github.com/4253537.js?file=parlezvousview.xml"></script></li>
+                            </ul>
+                            <p>Tips:</p>
+                            <p>You should draw your circles in the onDraw method by using the canvas. You will need to force the view to redraw with the onTouch method.</p>
+                            <h2>Bonus</h2>
+                            <p>When you tap twice quickly on a circle, delete it from the screen.</p>   
+                        </section>
+                    </div>
+                </div>  
+
+                <script src="js/bootstrap.min.js"></script>
+                <script src="http://code.jquery.com/jquery-latest.js"></script>
+</body>
+</html>
