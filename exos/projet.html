@@ -23,6 +23,7 @@
     <div class="container">
         <div class="row">
             <section>
+	      <h3>Projet à rendre le Mercredi 22 janvier, 23:59 (29 janvier pour ceux absents durant les deux jours de formation AVEC UNE RAISON VALIDE)</h3>
                 <h1>Présentation</h1>
                 <p>Le projet de développement est dans la continuité de l'application <strong>formulaire</strong> qui a été développée durant la formation. L'application de ce projet devra s'articuler de la manière suivante :</p>
                 <img src="img/projet.png" alt="Cinématique du projet">
@@ -46,9 +47,11 @@
                 <p class="well"><span class="label label-info">Remarque</span> La partie <strong>tricky</strong> du projet est l'implémentation de la liste des messages. Je ne vous ai pas parlé du composant permettant l'affichage d'une liste. C'est cette partie qui va représenter le gros du travail. Vous trouverez des indications à la fin de ce document.</p>
                 <h1>Indications</h1>
                 <h3>Urls</h3>
-                <p>Le web service est hébergé sur Heroku à l'adresse <a href="http://parlezvous.herokuapp.com/">http://parlezvous.herokuapp.com</a>. Il n'est pas nécessaire d'indiquer le port comme pendant de la formation.</p>
+                <p>Le web service est hébergé sur Heroku à l'adresse <a href="http://parlezvous.herokuapp.com/">http://parlezvous.herokuapp.com</a>. Il n'est pas nécessaire d'indiquer le port comme pendant de la formation. L'url racine vous permet d'enregistrer un nouvel utilisateur.</p>
                 <p>Voici la liste des urls que vous allez devoir utiliser :</p>
                 <dl>
+                    <dt><strong>/connect/{user}/{password}</strong></dt>
+                    <dd>Vérifie l'existence de la combinaison user/password et retourne la chaine de caractères <code>true</code> si elle existe, <code>false</code> sinon.</dd>
                     <dt><strong>/message/{user}/{password}/{message}</strong></dt>
                     <dd>Poster un message dont l'auteur est user. La combinaison user/password doit être valide pour que le message soit posté. Aucune valeur de retour n'est renvoyé par le serveur.</dd>
                     <dt><strong>/messages/{user}/{password}</strong></dt>
@@ -68,6 +71,12 @@
                     <li><a href="http://developer.android.com/resources/tutorials/views/hello-listview.html">http://developer.android.com/resources/tutorials/views/hello-listview.html</a></li>
                     <li><a href="http://developer.android.com/training/improving-layouts/smooth-scrolling.html">http://developer.android.com/training/improving-layouts/smooth-scrolling.html</a></li>
                 </ul>
+		<h3>Envoyer le project</h3>
+		<p>Vous pouvez envoyer le projet à l'adresse suivante : <em>lmazon@excilys.com</em>.
+		<p>Le fichier envoyé devra être un zip contenant le dossier racine de votre project (celui contenant les sous-dossiers res et src). Nommez votre fichier zip de la manière suivante (pour un projet à deux personnes):</p>
+		<p><code>ParlezVousAndroid_FirstName1-LASTNAME1_FirstName2-LASTNAME2.zip</code></p>
+		<p>Exemple:</p>
+		<p><code>ParlezVousAndroid_Luc-MAZON_Loic-ORTOLA.zip</code></p>
             </section>
             <script src="js/bootstrap.min.js"></script>
             <script src="http://code.jquery.com/jquery-latest.js"></script>
