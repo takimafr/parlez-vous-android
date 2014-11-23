@@ -364,7 +364,7 @@ a:hover {
     float: right;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
-    border-radius: 10px; 
+    border-radius: 10px;
 }
 
 #project ul {
@@ -430,4 +430,13 @@ a:hover {
 
 .intents.present {
     opacity: 1;
+}
+
+.twoPictures img{
+    width: 400px;
+    vertical-align: middle;
+}
+
+#img_wysiwyg{
+    height: 600px;
 }
